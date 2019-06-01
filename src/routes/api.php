@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:api')->resource('city', 'CityController', ['only' => ['store']]);
+
+Route::resource('city', 'CityController', ['only' => ['index']]);
